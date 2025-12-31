@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI问答 · 黄智淳</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="main-container">
+        <!-- 左侧固定栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <!-- 头像 -->
+                <div class="avatar-section">
+                    <div class="avatar">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="100" fill="#1A1F35"/>
+                            <circle cx="100" cy="80" r="30" fill="#00D9FF"/>
+                            <path d="M 30 180 Q 30 140 100 140 Q 170 140 170 180 L 170 200 L 30 200 Z" fill="#00D9FF"/>
+                        </svg>
+                    </div>
+                    <h2 class="name">黄智淳</h2>
+                    <p class="title">全栈开发者</p>
+                </div>
+
+                <!-- 标签 -->
+                <div class="tags-section">
+                    <div class="tag">AI问答</div>
+                    <div class="tag">智能助手</div>
+                    <div class="tag">技术咨询</div>
+                </div>
+
+                <!-- 社交图标 -->
+                <div class="social-icons">
+                    <a href="https://github.com" target="_blank" class="social-icon github" title="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon qq" title="QQ">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 5.64 2 10c0 2.42 1.12 4.6 2.92 6.06L4 22l6.14-1.02C10.96 21.66 11.46 21.7 12 21.7c5.52 0 10-3.64 10-8.1S17.52 2 12 2zm0 14.5c-.83 0-1.64-.12-2.41-.35l-.3-.09-2.17.36.46-2.11-.1-.3C6.5 13.2 6 12.1 6 11c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:your.email@example.com" class="social-icon email" title="邮箱">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon wechat" title="微信">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.488-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18 0 .653-.52 1.18-1.162 1.18-.642 0-1.162-.527-1.162-1.18 0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18 0 .653-.52 1.18-1.162 1.18-.642 0-1.162-.527-1.162-1.18 0-.651.52-1.18 1.162-1.18zm5.34 2.166c-1.693 1.361-2.445 3.294-1.81 5.115.078.223.177.44.296.65a9.148 9.148 0 0 1-2.717 2.466.59.59 0 0 1-.665.213l-1.481.39c-.07.019-.141.048-.213.048-.163 0-.295-.13-.295-.29a.326.326 0 0 1 .054-.167l1.114-1.903a.864.864 0 0 1 .098-.717 8.952 8.952 0 0 1-.403-2.837c0-4.754 3.891-8.342 8.691-8.342.276 0 .543.027.811.05-1.693 4.057-5.873 7.12-9.783 7.12zm-1.127 3.024c.519 0 .94.427.94.953 0 .527-.421.953-.94.953-.519 0-.94-.426-.94-.953 0-.526.421-.953.94-.953zm4.416 0c.519 0 .94.427.94.953 0 .527-.421.953-.94.953-.519 0-.94-.426-.94-.953 0-.526.421-.953.94-.953z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- 我的小小工具箱 -->
+                <div class="toolbox-section">
+                    <h3 class="toolbox-title">我的小小工具箱</h3>
+                    <div class="toolbox-items">
+                        <a href="blog-list.html" class="toolbox-item">
+                            <span class="toolbox-icon">📝</span>
+                            <span class="toolbox-label">博客列表</span>
+                        </a>
+                        <a href="index.html" class="toolbox-item">
+                            <span class="toolbox-icon">🏠</span>
+                            <span class="toolbox-label">返回主页</span>
+                        </a>
+                        <a href="#" class="toolbox-item">
+                            <span class="toolbox-icon">🔧</span>
+                            <span class="toolbox-label">工具</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧主内容区 -->
+        <main class="main-content">
+            <div class="card qa-card">
+                <div class="card-header">
+                    <h3 class="card-title">AI问答助手</h3>
+                    <a href="index.html" class="card-link">← 返回主页</a>
+                </div>
+
+                <!-- 问答区域 -->
+                <div class="qa-container">
+                    <!-- 问题输入区域 -->
+                    <div class="qa-input-section">
+                        <form id="qaForm" class="qa-form">
+                            <div class="form-group">
+                                <label for="questionInput">输入你的问题</label>
+                                <textarea 
+                                    id="questionInput" 
+                                    name="question" 
+                                    rows="4" 
+                                    placeholder="在这里输入你的问题，AI助手会为你解答...（按 Enter 发送，Shift+Enter 换行）"
+                                    required></textarea>
+                            </div>
+                            <div class="qa-form-actions">
+                                <button type="button" class="btn btn-hunter" id="hunterModeBtn">
+                                    🎯 猎头模式
+                                </button>
+                                <button type="submit" class="btn btn-primary" id="submitBtn">
+                                    <span id="submitText">提交问题</span>
+                                    <span id="loadingText" style="display: none;">思考中...</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 回答显示区域 -->
+                    <div class="qa-answer-section" id="answerSection" style="display: none;">
+                        <div class="answer-header">
+                            <h4>回答</h4>
+                        </div>
+                        <div class="answer-content" id="answerContent">
+                            <!-- 回答内容将显示在这里 -->
+                        </div>
+                    </div>
+
+                    <!-- 历史记录 -->
+                    <div class="qa-history-section">
+                        <div class="history-header">
+                            <h4>历史问答</h4>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button class="btn-clear" id="clearConversationBtn">清空对话</button>
+                                <button class="btn-clear" id="clearHistoryBtn" style="display: none;">清空历史</button>
+                            </div>
+                        </div>
+                        <div class="history-list" id="historyList">
+                            <!-- 历史问答记录将显示在这里 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 自定义模态弹窗 -->
+    <div id="customModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <h4 id="modalTitle">提示</h4>
+                <span class="custom-modal-close" id="modalClose">&times;</span>
+            </div>
+            <div class="custom-modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="custom-modal-footer" id="modalFooter">
+                <!-- 按钮将动态添加 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // ============================================
+        // DeepSeek API配置区域
+        // ============================================
+        // DeepSeek API 地址（根据官方文档：https://api.deepseek.com）
+        const API_URL = 'https://api.deepseek.com/v1/chat/completions';
+        
+        // TODO: 请替换为你的实际 DeepSeek API Key
+        const API_KEY = 'sk-fb900c70dc0d4edf9fc52fe7678c3106'; // 请替换为你的实际API Key
+        
+        // ============================================
+
+        const qaForm = document.getElementById('qaForm');
+        const questionInput = document.getElementById('questionInput');
+        const answerSection = document.getElementById('answerSection');
+        const answerContent = document.getElementById('answerContent');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const loadingText = document.getElementById('loadingText');
+        const historyList = document.getElementById('historyList');
+        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+
+        // 自定义弹窗元素
+        const customModal = document.getElementById('customModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const modalFooter = document.getElementById('modalFooter');
+        const modalClose = document.getElementById('modalClose');
+
+        // 自定义 alert 函数
+        function customAlert(message, title = '提示') {
+            return new Promise((resolve) => {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modalFooter.innerHTML = '<button class="btn btn-primary" id="modalOkBtn">确定</button>';
+                
+                customModal.style.display = 'flex';
+                
+                const okBtn = document.getElementById('modalOkBtn');
+                const closeModal = () => {
+                    customModal.style.display = 'none';
+                    resolve();
+                };
+                
+                okBtn.onclick = closeModal;
+                modalClose.onclick = closeModal;
+                customModal.onclick = (e) => {
+                    if (e.target === customModal) {
+                        closeModal();
+                    }
+                };
+            });
+        }
+
+        // 自定义 confirm 函数
+        function customConfirm(message, title = '确认') {
+            return new Promise((resolve) => {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modalFooter.innerHTML = `
+                    <button class="btn btn-secondary" id="modalCancelBtn">取消</button>
+                    <button class="btn btn-primary" id="modalConfirmBtn">确定</button>
+                `;
+                
+                customModal.style.display = 'flex';
+                
+                const confirmBtn = document.getElementById('modalConfirmBtn');
+                const cancelBtn = document.getElementById('modalCancelBtn');
+                
+                const closeModal = (result) => {
+                    customModal.style.display = 'none';
+                    resolve(result);
+                };
+                
+                confirmBtn.onclick = () => closeModal(true);
+                cancelBtn.onclick = () => closeModal(false);
+                modalClose.onclick = () => closeModal(false);
+                customModal.onclick = (e) => {
+                    if (e.target === customModal) {
+                        closeModal(false);
+                    }
+                };
+            });
+        }
+
+        // 对话历史数组（用于保持对话记忆）
+        // 格式: [{ role: 'user'|'assistant'|'system', content: '...' }]
+        let conversationHistory = [];
+
+        // 猎头模式状态
+        let isHunterMode = false;
+
+        // 从本地存储加载对话历史
+        function loadConversationHistory() {
+            const saved = localStorage.getItem('qaConversationHistory');
+            if (saved) {
+                conversationHistory = JSON.parse(saved);
+            } else {
+                // 初始化对话历史，包含系统消息
+                conversationHistory = [
+                    {
+                        role: 'system',
+                        content: 'You are a helpful assistant.'
+                    }
+                ];
+            }
+        }
+
+        // 保存对话历史到本地存储
+        function saveConversationHistory() {
+            localStorage.setItem('qaConversationHistory', JSON.stringify(conversationHistory));
+        }
+
+        // 清空对话历史
+        function clearConversationHistory() {
+            conversationHistory = [
+                {
+                    role: 'system',
+                    content: 'You are a helpful assistant.'
+                }
+            ];
+            saveConversationHistory();
+            // 退出猎头模式
+            exitHunterMode();
+        }
+
+        // 更新猎头模式按钮状态
+        function updateHunterModeButton() {
+            const hunterModeBtn = document.getElementById('hunterModeBtn');
+            if (hunterModeBtn) {
+                if (isHunterMode) {
+                    hunterModeBtn.textContent = '🎯 猎头模式中';
+                    hunterModeBtn.classList.add('hunter-mode-active');
+                } else {
+                    hunterModeBtn.textContent = '🎯 猎头模式';
+                    hunterModeBtn.classList.remove('hunter-mode-active');
+                }
+            }
+        }
+
+        // 退出猎头模式
+        function exitHunterMode() {
+            isHunterMode = false;
+            updateHunterModeButton();
+        }
+
+        // 从本地存储加载历史记录
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('qaHistory') || '[]');
+            if (history.length > 0) {
+                clearHistoryBtn.style.display = 'block';
+                historyList.innerHTML = '';
+                history.forEach((item, index) => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'history-item';
+                    historyItem.innerHTML = `
+                        <div class="history-question">
+                            <strong>Q${index + 1}:</strong> ${item.question}
+                        </div>
+                        <div class="history-answer">
+                            <strong>A:</strong> ${item.answer}
+                        </div>
+                        <div class="history-time">${item.time}</div>
+                    `;
+                    historyList.appendChild(historyItem);
+                });
+            } else {
+                clearHistoryBtn.style.display = 'none';
+            }
+        }
+
+        // 保存到历史记录
+        function saveToHistory(question, answer) {
+            const history = JSON.parse(localStorage.getItem('qaHistory') || '[]');
+            const now = new Date();
+            const timeString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+            
+            history.unshift({
+                question: question,
+                answer: answer,
+                time: timeString
+            });
+            
+            // 最多保存20条历史记录
+            if (history.length > 20) {
+                history.pop();
+            }
+            
+            localStorage.setItem('qaHistory', JSON.stringify(history));
+            loadHistory();
+        }
+
+        // 调用DeepSeek API获取回答（使用对话历史保持记忆）
+        async function getAnswer(question, useHistory = true) {
+            try {
+                // 将用户消息添加到对话历史
+                if (useHistory) {
+                    conversationHistory.push({
+                        role: 'user',
+                        content: question
+                    });
+                } else {
+                    // 如果不使用历史，创建临时对话（用于猎头模式等）
+                    conversationHistory = [
+                        {
+                            role: 'system',
+                            content: 'You are a helpful assistant.'
+                        },
+                        {
+                            role: 'user',
+                            content: question
+                        }
+                    ];
+                }
+
+                // ============================================
+                // DeepSeek API调用配置（根据官方文档）
+                // ============================================
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // DeepSeek API 需要 Authorization header
+                        'Authorization': `Bearer ${API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        // DeepSeek 模型名称
+                        model: 'deepseek-chat',
+                        // 发送完整的对话历史以保持记忆
+                        messages: conversationHistory,
+                        // 可选参数
+                        temperature: 0.7,
+                        max_tokens: 2000
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(`API请求失败: ${response.status} ${response.statusText}. ${errorData.error?.message || ''}`);
+                }
+
+                const data = await response.json();
+                
+                // ============================================
+                // 解析DeepSeek API响应
+                // DeepSeek 返回格式与 OpenAI 兼容：
+                // { choices: [{ message: { content: "回答内容" } }] }
+                // ============================================
+                if (data.choices && data.choices[0] && data.choices[0].message) {
+                    const answer = data.choices[0].message.content;
+                    
+                    // 将AI回复添加到对话历史
+                    if (useHistory) {
+                        conversationHistory.push({
+                            role: 'assistant',
+                            content: answer
+                        });
+                        // 保存对话历史
+                        saveConversationHistory();
+                    }
+                    
+                    return answer;
+                } else {
+                    // 如果格式不匹配，返回错误信息
+                    console.error('意外的API响应格式:', data);
+                    throw new Error('API返回格式异常，请检查响应数据');
+                }
+            } catch (error) {
+                // 如果出错，回滚最后添加的用户消息
+                if (useHistory && conversationHistory.length > 0 && conversationHistory[conversationHistory.length - 1].role === 'user') {
+                    conversationHistory.pop();
+                }
+                console.error('DeepSeek API 调用错误:', error);
+                throw error;
+            }
+        }
+
+        // 提交问题的函数（可被表单提交和回车键调用）
+        // skipHistory: 是否跳过保存历史记录（用于猎头模式等特殊场景）
+        async function submitQuestion(skipHistory = false) {
+            const question = questionInput.value.trim();
+            if (!question) {
+                await customAlert('请输入问题！', '提示');
+                return;
+            }
+
+            // 显示加载状态
+            submitBtn.disabled = true;
+            submitText.style.display = 'none';
+            loadingText.style.display = 'inline';
+            answerSection.style.display = 'none';
+            answerContent.innerHTML = '';
+
+            try {
+                // 调用API获取回答
+                const answer = await getAnswer(question);
+                
+                // 显示回答
+                answerContent.innerHTML = answer.replace(/\n/g, '<br>');
+                answerSection.style.display = 'block';
+                
+                // 只有在不跳过历史记录时才保存
+                if (!skipHistory) {
+                    saveToHistory(question, answer);
+                }
+                
+                // 清空输入框
+                questionInput.value = '';
+                
+                // 滚动到回答区域
+                answerSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+            } catch (error) {
+                // 显示错误信息
+                answerContent.innerHTML = `<div style="color: var(--primary-color);">错误: ${error.message}<br><br>请检查：<br>1. API URL是否正确<br>2. API Key是否有效<br>3. 网络连接是否正常<br>4. API响应格式是否匹配</div>`;
+                answerSection.style.display = 'block';
+                console.error('获取回答失败:', error);
+            } finally {
+                // 恢复按钮状态
+                submitBtn.disabled = false;
+                submitText.style.display = 'inline';
+                loadingText.style.display = 'none';
+            }
+        }
+
+        // 处理表单提交
+        if (qaForm) {
+            qaForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await submitQuestion();
+            });
+        }
+
+        // 添加回车键发送功能（Shift+Enter 换行，Enter 发送）
+        if (questionInput) {
+            questionInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    // 如果按钮没有被禁用，则提交
+                    if (!submitBtn.disabled) {
+                        submitQuestion();
+                    }
+                }
+            });
+        }
+
+        // 猎头模式按钮
+        const hunterModeBtn = document.getElementById('hunterModeBtn');
+        if (hunterModeBtn) {
+            hunterModeBtn.addEventListener('click', async () => {
+                // 如果已经在猎头模式中，点击后退出
+                if (isHunterMode) {
+                    exitHunterMode();
+                    await customAlert('已退出猎头模式', '提示');
+                    return;
+                }
+
+                // 设置猎头模式的消息
+                const hunterMessage = '我是一个猎头，你现在是我的助手，现在开始你叫小猎，你的工作是帮我处理工作上遇到的问题。并且给予我对应的回答帮助。';
+                
+                // 显示加载状态（不填入输入框）
+                submitBtn.disabled = true;
+                submitText.style.display = 'none';
+                loadingText.style.display = 'inline';
+                answerSection.style.display = 'none';
+                answerContent.innerHTML = '';
+
+                try {
+                    // 直接调用API获取回答（不显示在输入框中，不使用历史记录）
+                    // useHistory = false 表示不保存到对话历史，也不使用之前的对话历史
+                    const answer = await getAnswer(hunterMessage, false);
+                    
+                    // 显示回答
+                    answerContent.innerHTML = answer.replace(/\n/g, '<br>');
+                    answerSection.style.display = 'block';
+                    
+                    // 进入猎头模式
+                    isHunterMode = true;
+                    updateHunterModeButton();
+                    
+                    // 不保存到历史记录（skipHistory = true）
+                    // 不显示在输入框中（从未填入）
+                    // 不使用对话历史（useHistory = false）
+                    
+                    // 滚动到回答区域
+                    answerSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    
+                } catch (error) {
+                    // 显示错误信息
+                    answerContent.innerHTML = `<div style="color: var(--primary-color);">错误: ${error.message}<br><br>请检查：<br>1. API URL是否正确<br>2. API Key是否有效<br>3. 网络连接是否正常<br>4. API响应格式是否匹配</div>`;
+                    answerSection.style.display = 'block';
+                    console.error('获取回答失败:', error);
+                } finally {
+                    // 恢复按钮状态
+                    submitBtn.disabled = false;
+                    submitText.style.display = 'inline';
+                    loadingText.style.display = 'none';
+                }
+            });
+        }
+
+        // 清空对话历史（清空AI的记忆）
+        const clearConversationBtn = document.getElementById('clearConversationBtn');
+        // 始终显示清空对话按钮（因为可能处于猎头模式中）
+        if (clearConversationBtn) {
+            clearConversationBtn.style.display = 'block';
+            clearConversationBtn.addEventListener('click', async () => {
+                const confirmed = await customConfirm('确定要清空对话历史吗？这将清除AI的记忆，但不会删除历史问答记录。', '清空对话历史');
+                if (confirmed) {
+                    // 清空回答显示区域
+                    if (answerSection) {
+                        answerSection.style.display = 'none';
+                    }
+                    if (answerContent) {
+                        answerContent.innerHTML = '';
+                    }
+                    
+                    clearConversationHistory();
+                    await customAlert('对话历史已清空，AI将重新开始对话。', '提示');
+                }
+            });
+        }
+
+        // 清空历史记录（清空显示的历史问答和对话历史数组）
+        if (clearHistoryBtn) {
+            clearHistoryBtn.addEventListener('click', async () => {
+                const confirmed = await customConfirm('确定要清空所有历史记录吗？这将清除历史问答记录和AI的对话记忆。', '清空历史记录');
+                if (confirmed) {
+                    // 清除显示的历史问答记录
+                    localStorage.removeItem('qaHistory');
+                    historyList.innerHTML = '';
+                    clearHistoryBtn.style.display = 'none';
+                    
+                    // 清空回答显示区域
+                    if (answerSection) {
+                        answerSection.style.display = 'none';
+                    }
+                    if (answerContent) {
+                        answerContent.innerHTML = '';
+                    }
+                    
+                    // 同时清除对话历史数组（让AI失去记忆）
+                    clearConversationHistory();
+                }
+            });
+        }
+
+        // 页面加载时加载对话历史和历史记录
+        loadConversationHistory();
+        loadHistory();
+        
+        // 初始化猎头模式按钮状态
+        updateHunterModeButton();
+    </script>
+</body>
+</html>
+
